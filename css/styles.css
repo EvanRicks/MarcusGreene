@@ -1,0 +1,83 @@
+body {
+  background: black url("../images/background.png") no-repeat fixed center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 0px 0px 10px rgba(0,0,0,1);
+  margin: 0px;
+}
+h1 {
+  font-size: 5em;
+  display: inline;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  border-top: medium double white;
+  border-bottom: medium double white;
+}
+hr {
+  width: 700px;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+  background-image: -moz-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+  background-image: -ms-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+  background-image: -o-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+}
+#nav-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+}
+#nav-item {
+  display: inline;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 1.25em;
+}
+#gallery-container {
+  width: 70%;
+  margin: 0px auto;
+  border: 1px solid rgba(255,255,255,0.5);
+  margin-top: 50px;
+  background-color: rgba(255,255,255,0.075);
+  overflow: hidden;
+}
+#gallery-container div {
+  display: inline-block;
+  width: 240px;
+  height: 240px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 10px;
+}
+#overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: black;
+  opacity: 0.95;
+}
+#frame {
+  display: none;
+  position: fixed;
+  width: 1200px;
+  height: 900px;
+  left: 50%;
+  margin-left: -600px;
+  top: 50%;
+  margin-top: -450px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
