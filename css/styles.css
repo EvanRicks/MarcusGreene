@@ -1,29 +1,23 @@
 body {
-  background: black url("../images/background.png") no-repeat fixed center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
-  color: white;
-  font-family: 'Open Sans', sans-serif;
-  text-shadow: 0px 0px 10px rgba(0,0,0,1);
-  margin: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', sans-serif;
+  	text-shadow: 0px 0px 10px rgba(0,0,0,1);
+  	background-color: black;
+  	color: white;
+  	background: black url("../images/background.png") no-repeat fixed center center;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 h1 {
-  font-size: 5em;
-  display: inline;
-}
-a {
-  color: white;
-  text-decoration: none;
-}
-a:hover {
-  border-top: medium double white;
-  border-bottom: medium double white;
+	font-weight: normal;
+	font-size: 5em; 
+	margin: 0;
 }
 hr {
-  width: 700px;
+  width: 50%;
   border: 0;
   height: 1px;
   background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
@@ -31,53 +25,78 @@ hr {
   background-image: -ms-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
   background-image: -o-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
 }
-#nav-menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  padding-top: 10px;
+#header {
+	width: 100%;
+	text-align: center;
+	color: white;
 }
-#nav-item {
-  display: inline;
-  margin-right: 20px;
-  margin-left: 20px;
-  font-size: 1.25em;
+#navbar {
+	text-align: center;
+	color: white;
+	list-style-type: none;
+	margin: 0;
+	padding: 10px 0px 20px 0px;
+	overflow: hidden;
 }
-#gallery-container {
-  width: 70%;
-  margin: 0px auto;
-  border: 1px solid rgba(255,255,255,0.5);
-  margin-top: 50px;
-  background-color: rgba(255,255,255,0.075);
-  overflow: hidden;
+#navbar li {
+	display: inline;
 }
-#gallery-container div {
-  display: inline-block;
-  width: 240px;
-  height: 240px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: 10px;
+#navbar a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white; 
+	margin-right: 20px;
+	margin-left: 20px;
+	font-size: 1em;
+}
+#navbar a:hover {
+	border-top: 4px double #ccc;
+	border-bottom: 4px double #ccc;
+}
+#wrapper {
+	width: 80%;
+	margin: 0px auto;
+	background-color: rgba(255,255,255,0.075);
+	border: 1px solid rgba(255,255,255,0.5);
+}
+#gallery {
+	list-style-type: none;
+	padding: 10px;
+	margin: 0;
+	text-align: center;
+}
+#gallery li {
+	display: inline-block;
+	padding: 5px;
+}
+#gallery li img {
+	width: 180px;
+	height: 135px;
 }
 #overlay {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background-color: black;
-  opacity: 0.95;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: black;
+	opacity: 0.95;
+	display: none;
+}
+#frameContainerFixed {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+#frameContainer {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
 }
 #frame {
-  display: none;
-  position: fixed;
-  width: 1200px;
-  height: 900px;
-  left: 50%;
-  margin-left: -600px;
-  top: 50%;
-  margin-top: -450px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
+	width: 90%;
+	height: 90%;
+	margin: 0 auto;
+	display: none;
+	background-position: center center;
+  	background-repeat: no-repeat;
+  	background-size: contain;
 }
