@@ -10,13 +10,13 @@ var main = function() {
 		$('#overlay').fadeIn();
 		frameUp = true;
 	});
-	$('#frame').click(function() {
+	$('#frame').click(function() { //fade out and shrink frame when frame is clicked
 		shrinkFrame();
 		$(this).fadeOut();
 		$('#overlay').fadeOut();
 		frameUp = false;
 	});
-	$('#overlay').click(function() {
+	$('#overlay').click(function() { //fade out and shrink frame when overlay is clicked
 		shrinkFrame();
 		$(this).fadeOut();
 		$('#frame').fadeOut();
