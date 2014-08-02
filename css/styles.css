@@ -58,6 +58,7 @@ hr {
 	margin: 0px auto;
 	background-color: rgba(255,255,255,0.075);
 	border: 1px solid rgba(255,255,255,0.5);
+	overflow: hidden;
 }
 #gallery {
 	list-style-type: none;
@@ -99,4 +100,11 @@ hr {
 	background-position: center center;
   	background-repeat: no-repeat;
   	background-size: contain;
+}
+footer {
+	text-align: center;
+	position: fixed;
+	top: 97%;
+	width: 100%;
+	font-size: 0.8em;
 }
