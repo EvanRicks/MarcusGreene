@@ -102,6 +102,13 @@ hr {
   	background-repeat: no-repeat;
   	background-size: contain;
 }
+#caption {
+	display: none;
+	position: fixed;
+	color: white;
+	top: 96%;
+	left: 50%;
+}
 footer {
 	text-align: center;
 	width: 100%;
@@ -117,6 +124,7 @@ footer {
 	height: 80px;
 	top: 50%;
 	margin-top: -40px;
+	opacity: 0.5;
 }
 #right {
 	display: none;
@@ -127,6 +135,7 @@ footer {
 	top: 50%;
 	margin-top: -40px;
 	right: 0px;
+	opacity: 0.5;
 }
 #left:hover, #right:hover, #gallery li img:hover {
 	cursor: pointer;

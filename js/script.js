@@ -5,9 +5,12 @@ var main = function() {
 	var keycodeLeft = 37;
 	var keycodeEsc = 27;
 	$('#gallery img').click(function() {
-		var src = $(this).attr('src');
-		var newSrc = thumbToArt(src);
-		$('#frame').css('background-image', newSrc);
+		var src = $(this).attr('src'); //gets source of thumbnail
+		var newSrc = thumbToArt(src); //converts thumbnail to original art
+		$('#frame').css('background-image', newSrc); //sets background of frame to art
+		var caption = $(this).attr('alt'); //gets caption from thumbnail
+		$('#caption').text(caption); //sets caption text
+		setCaptionMargin(); //centers the caption
 		currentImg = $(this).parent();
 		frameUp = allFadeIn();
 	});
@@ -36,6 +39,16 @@ var main = function() {
 			allFadeOut();
 		}
 	});
+	$('#right, #left').mouseover(function() { //highlights arrows on mouseover
+		if(frameUp) { //prevents arrows from highlighting during fade out
+			$(this).css('opacity', '0.9');
+		};
+	});
+	$('#right, #left').mouseleave(function() { //fades arrows on mouseleave
+		if (frameUp) { //prevents arrows from highlighting during fade out
+			$(this).css('opacity', '0.5');
+		};
+	});
 }
 
 $(document).ready(main);
@@ -46,6 +59,7 @@ function allFadeIn() { //fade in frame, overlay, and arrows, fade out footer, an
 	$('#overlay').fadeIn();
 	$('#left').fadeIn();
 	$('#right').fadeIn();
+	$('#caption').fadeIn();
 	$('footer').fadeOut();
 	frameUp = true;
 	return frameUp;
@@ -56,6 +70,7 @@ function allFadeOut() { //fade out frame, overlay, and arrows, fade in footer, a
 	$('#right').fadeOut();
 	$('#overlay').fadeOut();
 	$('#frame').fadeOut();
+	$('#caption').fadeOut();
 	$('footer').fadeIn();
 	frameUp = false;
 	return frameUp;
@@ -84,11 +99,14 @@ function nextImg(currentImg) {
 	else {
 		var nextImg = currentImg.next();
 	}
-	var nextSrc = nextImg.children('img').attr('src');
-	nextSrc = thumbToArt(nextSrc);
-	$('#frame').css('background-image', nextSrc);
-	currentImg = nextImg;
-	return currentImg;
+	var nextSrc = nextImg.children('img').attr('src'); //gets source of next thumbnail
+	nextSrc = thumbToArt(nextSrc); //converts thumbnail to original art
+	$('#frame').css('background-image', nextSrc); //sets frame background to new art
+	var caption = nextImg.children('img').attr('alt'); //gets caption from thumbnail
+	$('#caption').text(caption); //sets caption text
+	setCaptionMargin(); //centers the new caption
+	currentImg = nextImg; //updates currentImg
+	return currentImg; //returns new currentImg
 }
 function prevImg(currentImg) {
 	if (currentImg.is(':first-child')) {
@@ -97,9 +115,17 @@ function prevImg(currentImg) {
 	else {
 		var prevImg = currentImg.prev();
 	}
-	var prevSrc = prevImg.children('img').attr('src');
-	prevSrc = thumbToArt(prevSrc);
-	$('#frame').css('background-image', prevSrc);
-	currentImg = prevImg;
-	return currentImg;
+	var prevSrc = prevImg.children('img').attr('src'); //gets source of previous thumbnail
+	prevSrc = thumbToArt(prevSrc); //converts thumbnail to original art
+	$('#frame').css('background-image', prevSrc); //sets frame background to new art
+	var caption = prevImg.children('img').attr('alt'); //gets caption from thumbnail
+	$('#caption').text(caption); //sets caption text
+	setCaptionMargin(); //centers the new caption
+	currentImg = prevImg; //updates currentImg
+	return currentImg; //returns new currentImg
+}
+function setCaptionMargin() { //centers the caption
+	console.log('trying to center caption..');
+	var margin = '-' + (($('#caption').width()) / 2) + 'px'; //makes margin a negative value of half the div's width
+	$('#caption').css('margin-left', margin); //sets new margin for caption
 }
