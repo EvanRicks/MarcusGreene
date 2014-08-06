@@ -53,6 +53,24 @@ hr {
 	border-top: 4px double #ccc;
 	border-bottom: 4px double #ccc;
 }
+#leftCol {
+	float: left;
+	width: 20%;
+	padding: 5%;
+	overflow: hidden;
+	text-align: center;
+}
+#rightCol {
+	float: right;
+	width: 60%;
+	padding: 5%;
+}
+#rightCol h2  {
+	font-size: 3em;
+	text-align: center;
+	margin-top: 0px; 
+	margin-bottom: 0px;
+}
 #wrapper {
 	margin: auto;
 	width: 80%;
@@ -106,8 +124,9 @@ hr {
 	display: none;
 	position: fixed;
 	color: white;
-	top: 96%;
+	top: 95%;
 	left: 50%;
+	font-size: 2em;
 }
 footer {
 	text-align: center;
