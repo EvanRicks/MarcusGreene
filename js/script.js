@@ -46,7 +46,7 @@ var main = function() {
 	});
 	$('#right, #left').mouseleave(function() { //fades arrows on mouseleave
 		if (frameUp) { //prevents arrows from highlighting during fade out
-			$(this).css('opacity', '0.5');
+			$(this).css('opacity', '0.3');
 		};
 	});
 }
@@ -80,7 +80,6 @@ function resizeFrame() {
 		height: $(window).height(),
 		width: $(window).width()
 	});
-	console.log('width: ' + $(window).width());
 }
 function shrinkFrame() {
 	$('#frameContainer').css({
