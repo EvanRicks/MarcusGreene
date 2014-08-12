@@ -10,18 +10,12 @@ var main = function() {
 		$('#frame').css('background-image', newSrc); //sets background of frame to art
 		var caption = $(this).attr('alt'); //gets caption from thumbnail
 		$('#caption').text(caption); //sets caption text
-		setCaptionMargin(); //centers the caption
 		currentImg = $(this).parent();
 		frameUp = allFadeIn();
 	});
 	$('#frameContainer').click(function() {
 		frameUp = allFadeOut();
 	});
-	if(frameUp) { //prevents from resizing the frame when it should be shrunk
-		$(window).resize(function() {
-			resizeFrame();
-		});
-	}
 	$('#right').click(function() {
 		currentImg = nextImg(currentImg);
 	});
@@ -39,53 +33,25 @@ var main = function() {
 			allFadeOut();
 		}
 	});
-	$('#right, #left').mouseover(function() { //highlights arrows on mouseover
-		if(frameUp) { //prevents arrows from highlighting during fade out
-			$(this).css('opacity', '0.9');
-		};
-	});
-	$('#right, #left').mouseleave(function() { //fades arrows on mouseleave
-		if (frameUp) { //prevents arrows from highlighting during fade out
-			$(this).css('opacity', '0.3');
-		};
-	});
 }
 
 $(document).ready(main);
 
 function allFadeIn() { //fade in frame, overlay, and arrows, fade out footer, and resize frame
-	resizeFrame();
+	$('#frameContainerFixed').fadeIn().css('display', 'table'); //table allows for frame to be vert. centered
+	$('#frameContainer').fadeIn().css('display', 'table-cell'); //table-cell allows for frame to be vert. centered
 	$('#frame').fadeIn();
-	$('#overlay').fadeIn();
-	$('#left').fadeIn();
-	$('#right').fadeIn();
-	$('#caption').fadeIn();
+	$('#overlay, #left, #right, #caption').fadeIn();
 	$('footer').fadeOut();
 	frameUp = true;
 	return frameUp;
 }
 function allFadeOut() { //fade out frame, overlay, and arrows, fade in footer, and shrink frame
-	shrinkFrame();
-	$('#left').fadeOut();
-	$('#right').fadeOut();
-	$('#overlay').fadeOut();
-	$('#frame').fadeOut();
-	$('#caption').fadeOut();
+	$('#frame, #frameContainer, #frameContainerFixed').fadeOut();
+	$('#overlay, #left, #right, #caption').fadeOut();
 	$('footer').fadeIn();
 	frameUp = false;
 	return frameUp;
-}
-function resizeFrame() {
-	$('#frameContainer').css({
-		height: $(window).height(),
-		width: $(window).width()
-	});
-}
-function shrinkFrame() {
-	$('#frameContainer').css({
-		height: 0,
-		width: 0
-	});
 }
 function thumbToArt(src) {
 	var newSrc = 'url(' + src.substring(0,7) + 'art' + src.substring(13,src.length) + ')';
@@ -103,7 +69,6 @@ function nextImg(currentImg) {
 	$('#frame').css('background-image', nextSrc); //sets frame background to new art
 	var caption = nextImg.children('img').attr('alt'); //gets caption from thumbnail
 	$('#caption').text(caption); //sets caption text
-	setCaptionMargin(); //centers the new caption
 	currentImg = nextImg; //updates currentImg
 	return currentImg; //returns new currentImg
 }
@@ -119,12 +84,6 @@ function prevImg(currentImg) {
 	$('#frame').css('background-image', prevSrc); //sets frame background to new art
 	var caption = prevImg.children('img').attr('alt'); //gets caption from thumbnail
 	$('#caption').text(caption); //sets caption text
-	setCaptionMargin(); //centers the new caption
 	currentImg = prevImg; //updates currentImg
 	return currentImg; //returns new currentImg
-}
-function setCaptionMargin() { //centers the caption
-	console.log('trying to center caption..');
-	var margin = '-' + (($('#caption').width()) / 2) + 'px'; //makes margin a negative value of half the div's width
-	$('#caption').css('margin-left', margin); //sets new margin for caption
 }

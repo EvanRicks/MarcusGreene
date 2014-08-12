@@ -16,10 +16,14 @@ h1 {
 	font-size: 5em; 
 	margin: 0;
 }
+p {
+	text-align: justify;
+}
 hr {
   width: 50%;
   border: 0;
   height: 1px;
+  margin-bottom: 40px;
   background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
   background-image: -moz-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
   background-image: -ms-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
@@ -50,26 +54,18 @@ hr {
 	font-size: 1em;
 }
 #navbar a:hover {
-	border-top: 4px double #ccc;
-	border-bottom: 4px double #ccc;
+	border-top: 4px double #ccc !important;
+	border-bottom: 4px double #ccc !important;
 }
-#leftCol {
+#col1, #col2 {
+	width: 50%;
+	text-align: center;
+}
+#col1 {
 	float: left;
-	width: 20%;
-	padding: 5%;
-	overflow: hidden;
-	text-align: center;
 }
-#rightCol {
+#col2 {
 	float: right;
-	width: 60%;
-	padding: 5%;
-}
-#rightCol h2  {
-	font-size: 3em;
-	text-align: center;
-	margin-top: 0px; 
-	margin-bottom: 0px;
 }
 #wrapper {
 	margin: auto;
@@ -77,6 +73,12 @@ hr {
 	height: 80%;
 	background-color: rgba(255,255,255,0.075);
 	border: 1px solid rgba(255,255,255,0.5);
+	overflow: hidden;
+}
+#wrapperClear {
+	margin: auto;
+	width: 80%;
+	height: 80%;
 	overflow: hidden;
 }
 #gallery {
@@ -97,36 +99,42 @@ hr {
 	width: 100%;
 	height: 100%;
 	position: fixed;
+	top: 0px;
 	background-color: black;
 	opacity: 0.95;
 	display: none;
 }
 #frameContainerFixed {
+	display: none;
 	position: fixed;
-	left: 0px;
 	top: 0px;
+	width: 100%;
+	height: 100%;
 }
 #frameContainer {
-	display: table-cell;
+	display: none;
+	width: 100%;
+	height: 100%;
 	vertical-align: middle;
-	text-align: center;
 }
 #frame {
 	width: 90%;
 	height: 90%;
-	margin: 0 auto;
+	margin: auto;
 	display: none;
 	background-position: center center;
   	background-repeat: no-repeat;
   	background-size: contain;
+  	vertical-align: middle;
 }
 #caption {
 	display: none;
 	position: fixed;
 	color: white;
 	bottom: 5px;
-	left: 50%;
 	font-size: 1.5em;
+	width: 100%;
+	text-align: center;
 }
 footer {
 	text-align: center;
@@ -156,6 +164,15 @@ footer {
 	opacity: 0.3;
 	right: 0px;
 }
-#left:hover, #right:hover, #gallery li img:hover {
+#gallery li img:hover {
 	cursor: pointer;
+}
+#right:hover, #left:hover {
+	cursor: pointer;
+	opacity: 0.9;
+}
+#wrapperClear > img {
+	margin-right: 30px;
+	margin-bottom: 30px;
+	vertical-align: middle;
 }
