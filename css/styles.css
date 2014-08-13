@@ -5,7 +5,7 @@ body {
   	text-shadow: 0px 0px 10px rgba(0,0,0,1);
   	background-color: black;
   	color: white;
-  	background: black url("../images/background.png") no-repeat fixed center center;
+  	background: black url("../images/background2.png") no-repeat fixed center center;
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -16,8 +16,14 @@ h1 {
 	font-size: 5em; 
 	margin: 0;
 }
+h2 {
+	margin-top: 15px;
+}
 p {
 	text-align: justify;
+	padding: 0px 30px 14px 30px;
+	line-height: 175%;
+	font-weight: bold;
 }
 hr {
   width: 50%;
@@ -58,26 +64,29 @@ hr {
 	border-bottom: 4px double #ccc !important;
 }
 #col1, #col2 {
-	width: 50%;
 	text-align: center;
 }
 #col1 {
 	float: left;
+	width: 44%;
 }
 #col2 {
 	float: right;
+	width: 55%;
+	/*background-color: rgba(0, 0, 0, 0.6);
+	border: 1px solid rgba(255,255,255,0.5);*/
 }
 #wrapper {
 	margin: auto;
 	width: 80%;
 	height: 80%;
-	background-color: rgba(255,255,255,0.075);
+	background-color: rgba(0,0,0,0.6);
 	border: 1px solid rgba(255,255,255,0.5);
 	overflow: hidden;
 }
 #wrapperClear {
 	margin: auto;
-	width: 80%;
+	width: 1000px;
 	height: 80%;
 	overflow: hidden;
 }
@@ -171,8 +180,6 @@ footer {
 	cursor: pointer;
 	opacity: 0.9;
 }
-#wrapperClear > img {
-	margin-right: 30px;
-	margin-bottom: 30px;
-	vertical-align: middle;
+#col1 > img {
+	margin: 80px 0px;
 }
