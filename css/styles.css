@@ -224,7 +224,7 @@ footer > a {
 }
 @media screen and (max-width: 700px) {
 	#wrapper {
-		width: 404px;
+		width: 405px;
 		height: 1814px;
 	}
 	#navbar li {
@@ -258,7 +258,7 @@ footer > a {
 }
 @media screen and (max-width: 450px) {
 	#wrapper {
-		width: 212px;
+		width: 213px;
 		height: 3614px;
 	}
 }
