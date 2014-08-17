@@ -82,7 +82,7 @@ hr {
 }
 #wrapper {
 	margin: auto;
-	width: 1180px;
+	width: 1181px;
 	height: 614px;
 	background-color: rgba(0,0,0,0.6);
 	border: 1px solid rgba(255,255,255,0.5);
@@ -156,6 +156,10 @@ footer {
 	position: absolute;
 	padding-top: 40px;
 }
+footer > a {
+	text-decoration: none;
+	color: white;
+}
 #left {
 	display: none;
 	position: fixed;
@@ -192,7 +196,7 @@ footer {
 
 @media screen and (max-width: 1280px) {
 	#wrapper {
-		width: 792px;
+		width: 793px;
 		height: 914px;
 	}
 }
@@ -214,7 +218,7 @@ footer {
 }
 @media screen and (max-width: 900px) {
 	#wrapper {
-		width: 598px;
+		width: 599px;
 		height: 1214px;
 	}
 }
