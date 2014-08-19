@@ -2,7 +2,6 @@ var main = function() {
 	var frameUp = false;
 	var currentPage = $('#gallery #pg1');
 	var currentDot = $('.carousel .dot img:nth-child(1)');
-	console.log(currentDot.css('opacity') + 'dot logged!')
 	var currentImg;
 	var keycodeRight = 39;
 	var keycodeLeft = 37;
@@ -28,17 +27,29 @@ var main = function() {
 		frameUp = allFadeOut();
 	});
 	$('#right').click(function() {
-		currentImg = nextImg(currentImg);
+		resultArr = nextImg(currentImg, currentPage, currentDot);
+		currentImg = resultArr[0];
+		currentPage = resultArr[1];
+		currentDot = resultArr[2];
 	});
 	$('#left').click(function() {
-		currentImg = prevImg(currentImg);
+		resultArr = prevImg(currentImg, currentPage, currentDot);
+		currentImg = resultArr[0];
+		currentPage = resultArr[1];
+		currentDot = resultArr[2];
 	});
 	$(document).keyup(function(event) {
 		if(frameUp && event.keyCode == keycodeRight) {
-			currentImg = nextImg(currentImg);
+			resultArr = nextImg(currentImg, currentPage, currentDot);
+			currentImg = resultArr[0];
+			currentPage = resultArr[1];
+			currentDot = resultArr[2];
 		}
 		else if(frameUp && event.keyCode == keycodeLeft) {
-			currentImg = prevImg(currentImg);
+			resultArr = prevImg(currentImg, currentPage, currentDot);
+			currentImg = resultArr[0];
+			currentPage = resultArr[1];
+			currentDot = resultArr[2];
 		}
 		else if(frameUp && event.keyCode == keycodeEsc) {
 			allFadeOut();
@@ -69,8 +80,15 @@ function thumbToArt(src) {
 	return newSrc;
 }
 function nextPage(currentPage) {
-	$('.carousel .previous').css('visibility', 'visible'); //shows previous arrow
-	var nextPage = currentPage.next(); //finds next page
+	if (currentPage.is(':last-child')) { //finds first page if current is last
+		var nextPage = $('#gallery .page:first-child');
+		$('.carousel .previous').css('visibility', 'hidden'); //hides previous arrow
+		$('.carousel .next').css('visibility', 'visible'); //shows next arrow
+	}
+	else { //finds next page
+		var nextPage = currentPage.next();
+		$('.carousel .previous').css('visibility', 'visible'); //shows previous arrow
+	}
 	currentPage.css('display', 'none'); //hides current page
 	currentPage = nextPage; //updates currentPage
 	currentPage.css('display', 'block'); //shows new page
@@ -80,8 +98,15 @@ function nextPage(currentPage) {
 	return currentPage; //returns new currentPage
 }
 function prevPage(currentPage) {
-	$('.carousel .next').css('visibility', 'visible'); //shows next arrow
-	var prevPage = currentPage.prev(); //finds previous page
+	if (currentPage.is(':first-child')) { //finds last page if current is first
+		var prevPage = $('#gallery .page:last-child');
+		$('.carousel .next').css('visibility', 'hidden'); //hides next arrow
+		$('.carousel .previous').css('visibility', 'visible'); //shows previous arrow
+	}
+	else { //finds previous page
+		var prevPage = currentPage.prev();
+		$('.carousel .next').css('visibility', 'visible'); //shows next arrow
+	}
 	currentPage.css('display', 'none'); //hides current page
 	currentPage = prevPage; //updates currentPage
 	currentPage.css('display', 'block'); //shows new page
@@ -91,25 +116,42 @@ function prevPage(currentPage) {
 	return currentPage; //returns new currentPage
 }
 function nextDot(currentDot) {
-	var nextDot = currentDot.next(); //finds next dot
+	if (currentDot.is(':last-child')) { //finds first dot if current is last
+		var nextDot = $('.carousel .dot img:first-child');
+	}
+	else { //finds next dot
+		var nextDot = currentDot.next();
+	}
 	currentDot.css('opacity', '0.3'); //deactivates dot
 	currentDot = nextDot; //updates currentDot
 	currentDot.css('opacity', '1'); //activates new dot
 	return currentDot;
 }
 function prevDot(currentDot) {
-	var prevDot = currentDot.prev(); //finds previous dot
+	if (currentDot.is(':first-child')) { //finds last dot if current is first
+		var prevDot = $('.carousel .dot img:last-child');
+	}
+	else { //finds previous dot
+		var prevDot = currentDot.prev();
+	}
 	currentDot.css('opacity', '0.3'); //deactivates dot
 	currentDot = prevDot; //updates currentDot
 	currentDot.css('opacity', '1'); //activates new dot
 	return currentDot;
 }
-function nextImg(currentImg) {
-	if (currentImg.is(':last-child')) {
-		var nextImg = $('#gallery li').first();
+function nextImg(currentImg, currentPage, currentDot) {
+	if (currentImg.is(':last-child')) { //checks if current image is last of the page
+		if (currentImg.parent().is(':last-child')) { //checks if image is last of the last page
+			var nextImg = $('#gallery li').first(); //sets image to first of all pages
+		}
+		else { //image is last but not of the last page
+			var nextImg = currentImg.parent().next().children('li:first-child'); //sets image to the first of the next page
+		}
+		currentPage = nextPage(currentPage); //updpates current page
+		currentDot = nextDot(currentDot); //updates current dot
 	}
-	else {
-		var nextImg = currentImg.next();
+	else { //image isn't last of the page
+		var nextImg = currentImg.next(); //sets image to next image
 	}
 	var nextSrc = nextImg.children('img').attr('src'); //gets source of next thumbnail
 	nextSrc = thumbToArt(nextSrc); //converts thumbnail to original art
@@ -117,14 +159,22 @@ function nextImg(currentImg) {
 	var caption = nextImg.children('img').attr('alt'); //gets caption from thumbnail
 	$('#caption').text(caption); //sets caption text
 	currentImg = nextImg; //updates currentImg
-	return currentImg; //returns new currentImg
+	var resultArr = [currentImg, currentPage, currentDot]; //stores new image, page, and dot in array
+	return resultArr; //returns array of new image, page, and dot
 }
-function prevImg(currentImg) {
-	if (currentImg.is(':first-child')) {
-		var prevImg = $('#gallery li').last();
+function prevImg(currentImg, currentPage, currentDot) {
+	if (currentImg.is(':first-child')) { //checks if current iamge is first of the page
+		if (currentImg.parent().is(':first-child')) { //checks if image is first of the first page
+			var prevImg = $('#gallery li').last(); //sets image to last of all pages
+		}
+		else { //image is first but of the first page
+			var prevImg = currentImg.parent().prev().children('li:last-child'); //sets image to the last of the previous page
+		}
+		currentPage = prevPage(currentPage); //updates current page
+		currentDot = prevDot(currentDot); //updates current dot
 	}
-	else {
-		var prevImg = currentImg.prev();
+	else { //image isn't first of the page
+		var prevImg = currentImg.prev(); //sets image to the previous image
 	}
 	var prevSrc = prevImg.children('img').attr('src'); //gets source of previous thumbnail
 	prevSrc = thumbToArt(prevSrc); //converts thumbnail to original art
@@ -132,5 +182,6 @@ function prevImg(currentImg) {
 	var caption = prevImg.children('img').attr('alt'); //gets caption from thumbnail
 	$('#caption').text(caption); //sets caption text
 	currentImg = prevImg; //updates currentImg
-	return currentImg; //returns new currentImg
+	var resultArr = [currentImg, currentPage, currentDot]; //stores new image, page, and dot in array
+	return resultArr; //returns array of new image, page, and dot
 }
