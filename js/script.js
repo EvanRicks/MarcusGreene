@@ -1,5 +1,8 @@
 var main = function() {
 	var frameUp = false;
+	var currentPage = $('#gallery #pg1');
+	var currentDot = $('.carousel .dot img:nth-child(1)');
+	console.log(currentDot.css('opacity') + 'dot logged!')
 	var currentImg;
 	var keycodeRight = 39;
 	var keycodeLeft = 37;
@@ -12,6 +15,14 @@ var main = function() {
 		$('#caption').text(caption); //sets caption text
 		currentImg = $(this).parent();
 		frameUp = allFadeIn();
+	});
+	$('.carousel .next').click(function() {
+		currentPage = nextPage(currentPage);
+		currentDot = nextDot(currentDot);
+	});
+	$('.carousel .previous').click(function() {
+		currentPage = prevPage(currentPage);
+		currentDot = prevDot(currentDot);
 	});
 	$('#frameContainer').click(function() {
 		frameUp = allFadeOut();
@@ -56,6 +67,42 @@ function allFadeOut() { //fade out frame, overlay, and arrows, fade in footer, a
 function thumbToArt(src) {
 	var newSrc = 'url(' + src.substring(0,7) + 'art' + src.substring(13,src.length) + ')';
 	return newSrc;
+}
+function nextPage(currentPage) {
+	$('.carousel .previous').css('visibility', 'visible'); //shows previous arrow
+	var nextPage = currentPage.next(); //finds next page
+	currentPage.css('display', 'none'); //hides current page
+	currentPage = nextPage; //updates currentPage
+	currentPage.css('display', 'block'); //shows new page
+	if (currentPage.is(':last-child')) { //hides next arrow if last page
+		$('.carousel .next').css('visibility', 'hidden');
+	}
+	return currentPage; //returns new currentPage
+}
+function prevPage(currentPage) {
+	$('.carousel .next').css('visibility', 'visible'); //shows next arrow
+	var prevPage = currentPage.prev(); //finds previous page
+	currentPage.css('display', 'none'); //hides current page
+	currentPage = prevPage; //updates currentPage
+	currentPage.css('display', 'block'); //shows new page
+	if (currentPage.is(':first-child')) { //hides previous arrow if first page
+		$('.carousel .previous').css('visibility', 'hidden');
+	}
+	return currentPage; //returns new currentPage
+}
+function nextDot(currentDot) {
+	var nextDot = currentDot.next(); //finds next dot
+	currentDot.css('opacity', '0.3'); //deactivates dot
+	currentDot = nextDot; //updates currentDot
+	currentDot.css('opacity', '1'); //activates new dot
+	return currentDot;
+}
+function prevDot(currentDot) {
+	var prevDot = currentDot.prev(); //finds previous dot
+	currentDot.css('opacity', '0.3'); //deactivates dot
+	currentDot = prevDot; //updates currentDot
+	currentDot.css('opacity', '1'); //activates new dot
+	return currentDot;
 }
 function nextImg(currentImg) {
 	if (currentImg.is(':last-child')) {
