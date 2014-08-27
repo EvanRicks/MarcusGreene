@@ -1,6 +1,4 @@
 _images/
 #directory for uncompressed art
-marcus_cPanel
-#SSH Key for cPanel
 cgi-bin
 #empty server directory
