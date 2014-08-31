@@ -167,7 +167,7 @@ footer {
 	position: absolute;
 	margin-top: 10px;
 }
-footer > a {
+footer a {
 	text-decoration: none;
 	color: white;
 }

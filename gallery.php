@@ -126,6 +126,9 @@
 	</div>
 	<footer>
 		Site created by <a href="https://github.com/EvanRicks" target="_blank">Evan Ricks</a>
+		<div id="copyright">
+			Powered by <a href="http://www.couchcms.com/" title="CouchCMS - Simple Open-Source Content Management">CouchCMS</a>
+		</div>
 	</footer>
 	<div id="overlay"></div>
 	<div id="frameContainerFixed">
