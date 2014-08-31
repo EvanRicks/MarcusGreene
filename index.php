@@ -12,9 +12,9 @@
 	<div id="header">
 		<h1>Marcus Greene</h1>
 		<ul id="navbar">
-			<li><a href="index.html" id="current">Home</a></li>
-			<li><a href="gallery.html">Gallery</a></li>
-			<li><a href="contact.html">Contact Me</a></li>
+			<li><a href="index.php" id="current">Home</a></li>
+			<li><a href="gallery.php">Gallery</a></li>
+			<li><a href="contact.php">Contact Me</a></li>
 		</ul>
 	</div>
 	<hr>
