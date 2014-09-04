@@ -4,7 +4,7 @@
 <head>
 	<title>Marcus Greene - HOME</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="images/favicon.ico" type="images/x-icon">
+	<link rel="icon" href="image/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 </head>
@@ -20,7 +20,7 @@
 	<hr>
 	<div id="wrapperClear">
 		<div id="col1">
-			<img src="images/about.png" alt="sixth day">
+			<img src="image/about.png" alt="sixth day">
 		</div>
 		<div id="col2">
 			<h2>About</h2>

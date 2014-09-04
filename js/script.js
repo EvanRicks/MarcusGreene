@@ -76,7 +76,7 @@ function allFadeOut() { //fade out frame, overlay, and arrows, fade in footer, a
 	return frameUp;
 }
 function thumbToArt(src) {
-	var newSrc = 'url(' + src.substring(0,7) + 'art' + src.substring(13,src.length) + ')';
+	var newSrc = 'url(' + src.substring(0,6) + 'art' + src.substring(12,src.length) + ')';
 	return newSrc;
 }
 function nextPage(currentPage) {
