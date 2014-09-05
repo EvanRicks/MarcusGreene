@@ -1,3 +1,4 @@
+<?php require_once( 'couch/cms.php' ); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,9 +29,9 @@
 	<div id="header">
 		<h1>Marcus Greene</h1>
 		<ul id="navbar">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="gallery.html" id="current">Gallery</a></li>
-			<li><a href="contact.html">Contact Me</a></li>
+			<li><a href="index.php">Home</a></li>
+			<li><a href="gallery.php" id="current">Gallery</a></li>
+			<li><a href="contact.php">Contact Me</a></li>
 		</ul>
 	</div>
 	<hr>
@@ -88,3 +89,4 @@
 	<div id="caption"></div>
 </body>
 </html>
+<?php COUCH::invoke(); ?>
