@@ -11,7 +11,7 @@
 <body>
 	<div id="header">
 		<h1>Marcus Greene</h1>
-		<ul id="navbar">
+		<ul class="navbar">
 			<li><a href="index.php">Home</a></li>
 			<li><a href="gallery/basic.php">Gallery</a></li>
 			<li><a href="contact.php" class="current">Contact Me</a></li>
