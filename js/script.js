@@ -86,7 +86,7 @@ function setGalleryPages(currentPage, currentDot) {
 	var numPages = currentPage.parent().children().length;
 	var pageCounter = 0;
 	for (var i = 0; i < numPages; i++) { //checks each page for images
-		if (currentPage.has('li').length == 0) { //if page has no images
+		if (currentPage.children('li').children('img').attr('src').length == 0) { //if page has no images
 			var nextPage = currentPage.next();
 			var nextDot = currentDot.next();
 			currentPage.remove(); //remove current page from DOM
