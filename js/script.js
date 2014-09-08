@@ -99,6 +99,7 @@ function setGalleryPages(currentPage, currentDot) {
 				currentDot.prev().css('visibility', 'visible'); //makes first dot visible
 				currentDot.css('visibility', 'visible'); //makes second dot visible
 				$('.carousel .next').css('visibility', 'visible'); //shows next arrow
+				$('.carousel').css('height', 'auto'); //expands carousel to fit dots and arrows
 			}
 			else if (pageCounter > 1) {
 				currentDot.css('visibility', 'visible'); //makes current dot visible

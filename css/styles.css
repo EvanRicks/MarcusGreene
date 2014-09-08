@@ -212,6 +212,7 @@ footer a {
 }
 .carousel {
 	text-align: center;
+	height: 30px;
 }
 .carousel > img {
 	height: 20px;
