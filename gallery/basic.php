@@ -20,7 +20,7 @@
     	<cms:editable type='nicedit' label='Caption' name='caption' desc='Enter caption here' buttons='bold, italic, underline' hidden='1' />
 	</cms:repeatable>
 	<cms:repeatable name='page3' >
-    	<cms:editable name='thumb' label='Thumbnail' php='Upload .png of the image here' type='image' width='180' height='135' crop='1' quality='100' show_preview='1' hidden='1' />
+    	<cms:editable name='thumb' label='Thumbnail' desc='Upload .png of the image here' type='image' width='180' height='135' crop='1' quality='100' show_preview='1' hidden='1' />
 		<cms:editable name='image' label='Image' desc='Upload .png of the image here' type='image' width='1800' height='900' quality='100' hidden='1' />
     	<cms:editable type='nicedit' label='Caption' name='caption' desc='Enter caption here' buttons='bold, italic, underline' hidden='1' />
 	</cms:repeatable>

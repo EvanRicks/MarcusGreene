@@ -49,7 +49,7 @@
 		<ul class="navbar" style="
     padding-bottom: 4px;
     padding-top: 20px;">
-			<li><a href="basic.php"basic</a></li>
+			<li><a href="basic.php">basic</a></li>
 			<li><a href="figure.php" class="current">figure drawing</a></li>
 			<li><a href="landscape.php">landscape</a></li>
 			<li><a href="older.php">older work</a></li>

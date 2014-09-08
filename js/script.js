@@ -84,26 +84,30 @@ function thumbToArt(src) {
 }
 function setGalleryPages(currentPage, currentDot) {
 	var numPages = currentPage.parent().children().length;
+	var pageCounter = 0;
 	for (var i = 0; i < numPages; i++) { //checks each page for images
-		if(currentPage.has('li').length == 0) { //if page has no images
+		if (currentPage.has('li').length == 0) { //if page has no images
 			var nextPage = currentPage.next();
 			var nextDot = currentDot.next();
 			currentPage.remove(); //remove current page from DOM
 			currentDot.remove(); //remove current dot from DOM
 			currentPage = nextPage; //set to next page
 			currentDot = nextDot; //set to next dot
-			console.log(i);
 		}
-		else { //page has images, do nothing
+		else { //page has images
+			if (pageCounter == 1) { //if the second page..
+				currentDot.prev().css('visibility', 'visible'); //makes first dot visible
+				currentDot.css('visibility', 'visible'); //makes second dot visible
+				$('.carousel .next').css('visibility', 'visible'); //shows next arrow
+			}
+			else if (pageCounter > 1) {
+				currentDot.css('visibility', 'visible'); //makes current dot visible
+			}
 			currentPage = currentPage.next(); //sets to next page
 			currentDot = currentDot.next(); //sets to next dot
+			pageCounter++; //adds to pageCounter
 		}
 	};
-	if ($('#gallery').children().length < 2) { //if gallery doesn't have multiple pages
-		console.log("I'm tryin!!");
-		$('.carousel .dot').css('visibility', 'hidden');
-		$('.carousel .next').css('visibility', 'hidden');
-	}
 }
 function nextPage(currentPage) {
 	if (currentPage.is(':last-child')) { //finds first page if current is last
