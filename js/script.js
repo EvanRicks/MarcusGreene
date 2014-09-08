@@ -6,6 +6,7 @@ var main = function() {
 	var keycodeRight = 39;
 	var keycodeLeft = 37;
 	var keycodeEsc = 27;
+	setGalleryPages(currentPage, currentDot);
 	$('#gallery img').click(function() {
 		var src = $(this).attr('src'); //gets source of thumbnail
 		var newSrc = thumbToArt(src); //converts thumbnail to original art
@@ -76,8 +77,33 @@ function allFadeOut() { //fade out frame, overlay, and arrows, fade in footer, a
 	return frameUp;
 }
 function thumbToArt(src) {
+	console.log(src);
 	var newSrc = 'url(' + src.substring(28,34) + 'art' + src.substring(40,src.length) + ')';
+	console.log(newSrc);
 	return newSrc;
+}
+function setGalleryPages(currentPage, currentDot) {
+	var numPages = currentPage.parent().children().length;
+	for (var i = 0; i < numPages; i++) { //checks each page for images
+		if(currentPage.has('li').length == 0) { //if page has no images
+			var nextPage = currentPage.next();
+			var nextDot = currentDot.next();
+			currentPage.remove(); //remove current page from DOM
+			currentDot.remove(); //remove current dot from DOM
+			currentPage = nextPage; //set to next page
+			currentDot = nextDot; //set to next dot
+			console.log(i);
+		}
+		else { //page has images, do nothing
+			currentPage = currentPage.next(); //sets to next page
+			currentDot = currentDot.next(); //sets to next dot
+		}
+	};
+	if ($('#gallery').children().length < 2) { //if gallery doesn't have multiple pages
+		console.log("I'm tryin!!");
+		$('.carousel .dot').css('visibility', 'hidden');
+		$('.carousel .next').css('visibility', 'hidden');
+	}
 }
 function nextPage(currentPage) {
 	if (currentPage.is(':last-child')) { //finds first page if current is last
