@@ -78,7 +78,7 @@ function allFadeOut() { //fade out frame, overlay, and arrows, fade in footer, a
 }
 function thumbToArt(src) {
 	console.log(src);
-	var newSrc = 'url(' + src.substring(28,34) + 'art' + src.substring(40,src.length) + ')';
+	var newSrc = 'url(../' + src.substring(28,34) + 'art' + src.substring(40,src.length) + ')';
 	console.log(newSrc);
 	return newSrc;
 }
