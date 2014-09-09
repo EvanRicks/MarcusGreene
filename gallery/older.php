@@ -85,12 +85,12 @@
 				</cms:show_repeatable>
 			</div>
 			<div class="page" id="pg4">
-				<cms:show_repeatable 'page2' >
+				<cms:show_repeatable 'page4' >
    					<li><img src="<cms:show thumb />" alt="<cms:show caption />"></li>
 				</cms:show_repeatable>
 			</div>
 			<div class="page" id="pg5">
-				<cms:show_repeatable 'page3' >
+				<cms:show_repeatable 'page5' >
    					<li><img src="<cms:show thumb />" alt="<cms:show caption />"></li>
 				</cms:show_repeatable>
 			</div>	
