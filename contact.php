@@ -18,7 +18,7 @@
 		</ul>
 	</div>
 	<hr>
-	<div id="wrapper" style="width: 60%;">
+	<div id="wrapperClear">
 		<cms:editable name="contact" label="Contact Info" type="richtext" />
 	</div>
 	<footer>
