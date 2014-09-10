@@ -1,6 +1,6 @@
-_images/
-#directory for uncompressed art
 cgi-bin
 #empty server directory
 art
 #folder of original art
+gh-pages
+#folder for github page
