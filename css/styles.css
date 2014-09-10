@@ -99,6 +99,11 @@ hr {
 	padding: 0px 30px 14px 30px;
 	line-height: 175%;
 }
+#wrapperClear > #col2 > h2 {
+	font-weight: normal;
+	font-size: 2em;
+	margin-bottom: 20px;
+}
 #gallery {
 	list-style-type: none;
 	padding: 10px;
