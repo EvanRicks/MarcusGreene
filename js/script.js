@@ -12,7 +12,7 @@ var main = function() {
 		var newSrc = thumbToArt(src); //converts thumbnail to original art
 		$('#frame').css('background-image', newSrc); //sets background of frame to art
 		var caption = $(this).attr('alt'); //gets caption from thumbnail
-		$('#caption').text(caption); //sets caption text
+		$('#caption').html(caption); //sets caption text
 		currentImg = $(this).parent();
 		frameUp = allFadeIn();
 	});
