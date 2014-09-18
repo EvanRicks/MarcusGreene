@@ -188,7 +188,7 @@ function nextImg(currentImg, currentPage, currentDot) {
 	nextSrc = thumbToArt(nextSrc); //converts thumbnail to original art
 	$('#frame').css('background-image', nextSrc); //sets frame background to new art
 	var caption = nextImg.children('img').attr('alt'); //gets caption from thumbnail
-	$('#caption').text(caption); //sets caption text
+	$('#caption').html(caption); //sets caption text
 	currentImg = nextImg; //updates currentImg
 	var resultArr = [currentImg, currentPage, currentDot]; //stores new image, page, and dot in array
 	return resultArr; //returns array of new image, page, and dot
@@ -211,7 +211,7 @@ function prevImg(currentImg, currentPage, currentDot) {
 	prevSrc = thumbToArt(prevSrc); //converts thumbnail to original art
 	$('#frame').css('background-image', prevSrc); //sets frame background to new art
 	var caption = prevImg.children('img').attr('alt'); //gets caption from thumbnail
-	$('#caption').text(caption); //sets caption text
+	$('#caption').html(caption); //sets caption text
 	currentImg = prevImg; //updates currentImg
 	var resultArr = [currentImg, currentPage, currentDot]; //stores new image, page, and dot in array
 	return resultArr; //returns array of new image, page, and dot
